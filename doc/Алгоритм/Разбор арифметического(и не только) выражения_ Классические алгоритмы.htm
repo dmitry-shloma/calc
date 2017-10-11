@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>Разбор арифметического(и не только) выражения. Классические алгоритмы.</title>
+<style type="text/css">
+<!-- 
+a {text-decoration: none}
+a:hover {text-decoration: underline; color: #ff6600 }
+h2 {font-size:14pt; font-family:sans-serif; font-weight:bold }
+pre {font-size:12pt}
+.source {font-size:12pt; color: #666699}
+.l2 {font-size:13pt}
+.l3 {font-size:12pt}
+a, p, td { font-size: 13pt }
+-->
+</style>
+<META NAME=keywords CONTENT="алгоритм, построение, создание, написание, исходник, программа, определение, метод, вычисление, поиск, нахождение, реализация, описание, разбор, выражение, стек, язык, программирование, описание, Рутисхаузэр, стековый, арифметический, рекурсивный, вычисление">
+<META NAME=description CONTENT="Разбор выражений. Компиляторы и интерпретаторы.. Разбор арифметического(и не только) выражения. Классические алгоритмы..">
+<META NAME=copyright CONTENT="Основной контент - Кантор Илья, дизайн - Владимир Городулин, основа движка и разнообразная помощь - Алексей Фортуна">
+</head>
+
+<body bgcolor="#eeeeee" link="#0066cc" vlink="#0066cc" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+
+<style>
+#logotable img { border-style:none }
+</style>
+<!-- logo header ... -->
+<table width=100% border=0 cellspacing=0 cellpadding=0 id="logotable">
+<tr><td colspan=2 width=100% bgcolor=#DD6E00><a href="/"><img src="/img/mlogo1.gif" width=313 height=41></a></td></tr>
+<tr><td colspan=2 bgcolor=#ffffff><a href="/"><img src="/img/mlogo2.gif" width=313 height=3></a></td></tr>
+<tr><td><a href="/"><img src="/img/mlogo3.gif" width=313 height=33></a></td><td width=100% background="/img/mgrad.gif" bgcolor=#FE7E00 nowrap><table border=0 cellpadding=0 cellspacing=3 align=right>
+      <tr valign=middle>
+<!--
+
+      <FORM NAME="search_form" METHOD=GET ACTION="/cgi-bin/search.cgi">
+      <td><INPUT TYPE="text" NAME="q" SIZE=30 VALUE="" class="inputfield"></td>
+      <td><INPUT TYPE="image" src="/img/search.gif" width=68 height=19 border=0 onclick="this.blur()"></td>
+      </FORM>
+
+-->
+      </tr>
+      </table></td></tr>
+<tr><td colspan=2 bgcolor=#ffffff><img src="/img/0.gif" width=1 height=1></td></tr>
+</table>
+<!-- ...logo header -->
+
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript" type="text/javascript"><!--
+d=document;var a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1" type="text/javascript"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2" type="text/javascript"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3" type="text/javascript"><!--
+js=13//--></script><script language="JavaScript" type="text/javascript"><!--
+d.write('<IMG src="http://d8.c7.bf.a0.top.list.ru/counter'+
+'?id=1013908;js='+js+a+';rand='+Math.random()+
+'" height=1 width=1/>')
+if(11<js)d.write('<'+'!-- ')//--></script><noscript><img
+src="http://d8.c7.bf.a0.top.list.ru/counter?js=na;id=1013908"
+height=1 width=1 alt=""/></noscript><script language="JavaScript" type="text/javascript"><!--
+if(11<js)d.write('--'+'>')//--></script><!--/COUNTER-->
+
+
+<!-- main menu ... -->
+<table width=100% border=0 cellspacing=0 cellpadding=0>
+<tr><td bgcolor=#57A7EA>
+        <table border=0 cellspacing=0 cellpadding=0><tr>
+        <td><a href="/"><img src="/img/bs0.gif" width=140 height=17 border=0 alt=":: алгоритмы  и методы ::"></a></td>
+        <td><a href="/olimp/"><img src="/img/bs1.gif" width=140 height=17 border=0 alt=":: олимпиадные задачи ::"></a></td>
+        <td><a href="/contact.php"><img src="/img/bs2.gif" width=47 height=17 border=0 alt=":: связь ::"></a></td>
+        <td><a href="/aboutsite.php"><img src="/img/bs3.gif" width=57 height=17 border=0 alt=":: о сайте ::"></a></td>
+	<td><a href="http://forum.algolist.ru/"><img src="/img/bs6.gif" width=49 height=17 border=0 alt=":: форум ::"></a></td>
+<!--        <td><a href="/links/"><img src="/img/bs5.gif" width=57 height=17 border=0 alt=":: ссылки ::"></a></td>-->
+        </tr></table>
+</td></tr>
+<tr><td bgcolor=#ffffff><img src="/img/0.gif" width=1 height=1></td></tr>
+</table>
+<!-- ...main menu -->
+
+<!-- path line... -->
+<table cellspacing=2 cellpadding=2 border=0 width=100% bgcolor=#dddddd>
+<tr><td style="white-space:nowrap"><b>Путь:  <a href="/syntax/">Разбор выражений. Компиляторы и интерпретаторы.</a> &raquo; Классические алгоритмы</td></tr>
+</table>
+<!-- ...path line -->
+
+<!-- 
+==============
+ MAIN CONTENT:
+==============
+-->
+
+
+<!-- табличка для создания отступов... -->
+<table cellspacing=0 cellpadding=12 border=0 width="100%">
+<tr><td>
+
+<style>
+#add_suggestion_input, #add_suggestion_submit {
+    font-size:1.6em;
+}
+</style>
+<div style="text-align:center">
+<form method="post" action="/add_suggest.php" onsubmit="submit_suggestion_input(); return false">
+<input type="text" value="Я хочу, чтобы добавили информацию о..." name="add_suggestion" size="40" onfocus="focus_suggestion_input()" id="add_suggestion_input"/> <input type="submit" value="&raquo; Отправить" id="add_suggestion_submit"/>
+</form>
+</div>
+<script>
+function focus_suggestion_input() {
+    var input = document.getElementById('add_suggestion_input')
+    if (input.done) return
+    input.value=''
+    input.done = true
+}
+
+function getXmlHttp(){
+  var xmlhttp;
+    try {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+  } catch (e) {
+      try {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (E) {
+        xmlhttp = false;
+      }
+   }
+     if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+         xmlhttp = new XMLHttpRequest();
+    }
+     return xmlhttp;
+}
+function submit_suggestion_input() {
+    var input = document.getElementById('add_suggestion_input')
+    if (!input.done) {
+    	alert("Введите сначала предложение, какую информацию добавить на сайт")
+	return 
+    }
+
+    var xmlhttp = getXmlHttp();    
+    var url="/add_suggestion.php?ajax=true&"
+    xmlhttp.open("POST", '/add_suggestion.php?ajax=true&r='+Math.random(), true)
+    xmlhttp.onreadystatechange = function() {
+       if (xmlhttp.readyState == 4) {
+	       var txt = xmlhttp.responseText;
+	       alert(txt)
+	       input.value=''
+       }
+    }
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var data="add_suggestion="+encodeURIComponent(input.value)
+    xmlhttp.setRequestHeader('Content-Length',data.length);
+    xmlhttp.send(data)					   
+}
+</script>
+
+
+<table cellpadding=0 cellspacing=0 border=0 width="100%">
+
+
+
+<tr><td colspan=2><font face="Arial" color="#333333" size=4><b>&nbsp; Разбор арифметического(и не только) выражения. Классические алгоритмы.</font></td></tr>
+
+<tr><td colspan=2 bgcolor=#999999 colspan=2><img src="/img/0.gif" width=1 height=1><br></td></tr>
+
+                                                           
+
+<tr valign=top>
+        <td align=center><img src="/img/0.gif" width=160 height=1><br></td>
+        <td width="100%"><br>
+
+        
+
+<h3><FONT color=#003F73><b>Алгоритм Рутисхаузера</b></FONT></h3>
+
+<p>Данный алгоритм является одним из наиболее ранних. Его особенностью является  предположение о    полной скобочной  структуре выражения.
+Под полной  скобочной записью  выражения понимается  запись, в которой
+порядок  действий  задается  расстановкой  скобок. Неявное старшинство
+операций при этом не учитывается. Например:</p>
+     <div align="center"> D:=((C-(B*L))+K)</div>
+     <p>Обрабатывая  выражение  с    полной    скобочной структурой, алгоритм
+присваивает  каждому  символу  из  строки  номер  уровня по следующему
+пpавилу:</p>
+<p><b>1.</b> если это откpывающаяся скобка или пеpеменная, то значение увеличивается на 1;</p>
+<p><b>2.</b> если знак опеpации или закpывающаяся скобка, то уменьшается на 1.</p>
+     <p>Для выражения (А+(В+С)) присваивание значений уровня будет происходить следующим образом :</p>
+
+<pre>
+      |-------|---------------------------------------|
+      |N симв.| 1   2   3    4   5    6   7    8   9  |
+      |-------|---------------------------------------|
+      |Символы|                                       |
+      |строки | (   A   +    (   B    *   C    )   )  |
+      |-------|---------------------------------------|
+      |Номера |                                       |
+      |уровней| 1   2   1    2   3    2   3    2   1  |
+      |-------|---------------------------------------|
+</pre>                            
+
+    <p> Алгоритм складывается из следующих шагов:</p>
+	
+<p><b>1.</b> выполнить расстановку уровней;</p>
+<p><b>2.</b>  выполнить поиск элементов строки с максимальным значением уровня;</li></p>
+<p><b>3.</b> выделить тройку - два операнда с максимальным значением уровня и операцию, которая заключена между ними; </p>
+<p><b>4.</b> результат вычисления  тройки обозначить вспомогательной  переменной;</p>
+<p><b>5.</b> из исходной строки удалить выделенную тройку вместе с ее скобками, а на ее место поместить вспомогательную переменную, обозначающую
+результат, со  значением уровня  на единицу  меньше, чем  у выделенной
+тройки; </p>
+<p><b>6.</b> выполнять п.п.2 - 5 до тех пор, пока во входной строке не останется одна переменная, обозначающая общий результат выражения.</p>
+
+     <div align="center">Пример разбора :</div>
+<pre>	 
+     |------------|--------------------------------------|
+     |Генерируемые|            Выражение                 |
+     |   тройки   |                                      |
+     |------------|--------------------------------------|
+     |            |   ( ( ( ( А + В ) * С ) / D ) - E )  |
+     |            | 0 1 2 3 4 5 4 5 4 3 4 3 2 3 2 1 2 1 0|
+     |            |                                      |
+     |+ А В - > R |      ( ( ( R * C ) / D ) - E )       |
+     |            |    0 1 2 3 4 3 4 3 2 3 2 1 2 1 0     |
+     |            |                                      |
+     |* R C -> S  |          ( ( S / D ) - E )           |
+     |            |        0 1 2 3 2 3 2 1 2 1 0         |
+     |            |                                      |
+     |------------|--------------------------------------|
+
+     |------------|-----------------------------------|
+     |Генерируемые|            Выражение              |
+     |   тройки   |                                   |
+     |------------|-----------------------------------|
+     |/ S D -> Q  |         ( Q - E )                 |
+     |            |       0 1 2 1 2 1 0               |
+     |            |                                   |
+     |- Q E -> T  |             T                     |
+     |------------|-----------------------------------|
+</pre>                            
+     <h3><FONT color=#003F73><b>Алгоритм Бауэра и Замельзона</b></FONT></h3>
+
+   <p>  Из ранних стековых методов расматривается алгоритм Бауэра и Замельзона. Алгоритм использует два стека и таблицу функций перехода. Один
+стек используется при трансляции выражения, а второй - во время интерпретации выражения. Обозначения: Т - стек транслятора, Е - стек интерпретатора.</p>
+<p>     В таблице    переходов задаются  функции, которые  должен выполнить
+транслятор при разборе выражения. Возможны шесть функций при прочтении
+операции из входной строки:</p>
+<p>    - f1 - заслать операцию из входной строки в стек Т; читать следующий символ стpоки;</p>
+<p>    - f2 - выделить  тройку - взять операцию  с вершины стека Т  и два
+операнда с вершины  стека Е; вспомогательную  переменную, обозначающую
+результат, занести в стек Е; заслать операцию из входной строки в стек
+Т; читать следующий символ стpоки;</p>
+  <p>  - f3 - исключить символ из стека Т; читать следующий  символ
+стpоки;</p>
+<p>    - f4 - выделить  тройку - взять операцию  с вершины стека Т  и два
+операнда с вершины  стека Е; вспомогательную  переменную, обозначающую
+результат, занести в стек Е; по таблице определить функцию для данного
+символа входной строки;</p>
+<p>    - f5 - выдача сообщения об ошибке;</p>
+<p>    - f6 - завершение работы.</p>
+<p>    Таблица  переходов    для   алгебраических  выражений  будет     иметь
+вид(символ $ является признаком пустого стека или пустой строки):</p>
+<pre>
+ |----------|---------------------------------|
+ |          |     Операция из входной строки  |
+ |          |---------------------------------|
+ |          |     $   (   +   -   *   /   )   |
+ |----------|---|-----------------------------|
+ |Операция  |$  | 6   1   1   1   1   1   5   |
+ |на вершине|(  | 5   1   1   1   1   1   3   |
+ |стека Т   |+  | 4   1   2   2   1   1   4   |
+ |          |-  | 4   1   2   2   1   1   4   |
+ |          |*  | 4   1   4   4   2   2   4   |
+ |          |/  | 4   1   4   4   2   2   4   |
+ |----------|---|-----------------------------|
+</pre>                             
+     <p>Алгоритм просматривает слева  направо выражение и    циклически выполняет следующие действия: если очередной символ входной строки является операндом, то он безусловно переносится в стек Е; если же    операция, то по таблице функций перехода определяется номер функции для выполнения. Для выражения  А+(В-С)*D ниже приводится  последовательность
+действий алгоритма.</p>
+<pre>
+    |-------|--------|-------|-------|----------|
+    |стек Е | стек Т |Входной|Номер  |   Тройка |
+    |       |        |символ |функции|          |
+    |-------|--------|-------|-------|----------|
+    |$      | $      |  A    |       |          |
+    |$A     | $      |  +    |    1  |          |
+    |$A     | $+     |  (    |    1  |          |
+    |$A     | $+(    |  B    |       |          |
+    |$AB    | $+(    |  -    |    1  |          |
+    |$AB    | $+(-   |  C    |       |          |
+    |$ABC   | $+(-   |  )    |    4  |- B C ->R |
+    |$AR    | $+(    |  )    |    3  |          |
+    |$AR    | $+     |  *    |    1  |          |
+    |$AR    | $+*    |  D    |       |          |
+    |$ARD   | $+*    |  $    |    4  |* R D ->Q |
+    |$AQ    | $+     |  $    |    4  |+ A Q ->S |
+    |$S     | $      |  $    |Конец  |          |
+    |-------|--------|-------|-------|----------|
+	
+</pre>                            <a href="http://forum.algolist.ru/"><p align="right"><u><i>Обсудить на форуме</i></u> &raquo;</p></a>
+</td>
+</tr>
+</table>
+
+<hr/>
+
+<style>
+#linksrek * {
+ font-size:10px;
+}
+</style>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2056213-1";
+urchinTracker();
+</script>
+
+<!-- ...табличка для создания отступов-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=2161&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<img src=\"http://hit1.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=1 height=1>")</script>
+<noscript><img src="http://hit1.hotlog.ru/cgi-bin/hotlog/count?s=2161" border=0 
+width=1 height=1></noscript>
+<!-- /HotLog -->
+
+<div align="center">
+<a target=_top
+href="http://top.mail.ru/jump?from=1013908"><img
+SRC="http://d8.c7.bf.a0.top.list.ru/counter?id=1013908;t=84;l=1"
+border=0 height=18 width=88 alt="Рейтинг@Mail.ru"/></a>
+</div>
+
+
+	<div align="center" style="margin-top:100px">На правах рекламы</div>
+	<div align="center" id="linksrek">
+<a href="http://www.pmontaj.ru/" target="_blank">установка и подключение стиральной машины, газовой плиты</a></div>
+<!--<div style="text-align:center"><iframe src="http://194.67.66.243:8000/banner-block-01.html?l=algolist.manual.ru" width="100" height="30" frameborder="0"></iframe>
+</div>-->
+</body>
+</html>

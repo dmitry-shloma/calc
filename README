@@ -1,2 +1,64 @@
-# calc-math-expression
-The calculation of the mathematical expression given as a string of characters
+# calc
+
+# description [en]:
+Calc is a console application that calculates a mathematical expression,
+defined as a string. For assembly, Qt 4.8.6 is required.
+
+Features:
+- arithmetic operations: addition, subtraction, multiplication, division,
+exponentiation, root extraction, logarithm (only decimal
+or natural logarithm);
+- setting the priority of operations, by means of parentheses;
+- Trigonometric functions: sin, cos, tan, cotan, arcsin, arccos, arctan;
+- predefined functions: exponential, factorial
+
+Roadmap:
+- indicating the place of the input error;
+- functions with two, three and n number of variables;
+- functions with a number, such as log10, etc .:
+- implement the addition of their functions;
+- the correct setting of a negative number.
+- to implement the input styles of mathematical expressions (mathematical,
+programmer)
+
+Description of work:
+In the console, enter a mathematical expression, in infix notation
+(in the usual way for a person), and transferred to the library,
+where it is placed in the container. Then, using the Dijkstra algorithm,
+it is transformed into a postfix Notation (reverse Polish notation).
+The resulting expression is computed a translator based on the algorithm
+of the stacking machine. The result of the calculation is the solution
+of a given mathematical expression.
+
+Used algorithms: Dijkstra algorithm, stacking machine
+
+# описание [ru]:
+Калькулятор (calc) это консольное приложение, вычисляющее математическое
+выражение, заданное в виде строки. Для сборки требуется Qt 4.8.6.
+
+Основные функции:
+- арифметические операции: сложение, вычитание, умножение, деление,
+возведение в степень, извлечение корня, логарифмирование (только десятичный
+или натуральный логарифм);
+- задание приоритета операций, посредством парных скобок;
+- тригонометрические функции: sin, cos, tan, cotan, arcsin, arccos, arctan;
+- предопределенные функции: экспонента, факториал.
+
+В планах, реализовать:
+- указание места ошибки ввода;
+- функции с двумя, тремя и n количеством переменных;
+- функции с числом, такие как log10 и т.д.:
+- реализовать добавление своих функций;
+- правильное задание отрицательного числа.
+- реализовать стили ввода математических выражений (математический,
+программистский)
+
+Описание работы:
+В консоли вводиться математическое выражение, в инфиксной нотации
+(в привычном для человека виде), и передается в библиотеку, где помещается в
+контейнер. Затем, используя алгоритм Дейкстры, преобразуется в постфиксную
+нотацию (обратная польская нотация). Полученное выражение, вычисляется
+транслятором, основанным на алгоритме стековой машины.
+Результат вычисления является решением, заданного математического выражения.
+
+Используемые алгоритмы: Алгоритм Дейкстры, стековая машина

@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Язык Си в примерах/Калькулятор выражений в обратной польской нотации,Язык Си в примерах,Язык Си в примерах/ASCII коды символов,Язык Си в примерах/Библиотека complex,Язык Си в примерах/Верхний регистр,Язык Си в примерах/Задача «Расчёт сопротивления схемы»,Язык Си в примерах/Использование аргументов командной строки,Язык Си в примерах/Калькулятор выражений в обратной польской нотации на Bison,Язык Си в примерах/Компиляция программ,Язык Си в примерах/Корень уравнения,Язык Си в примерах/Максимум" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Викиучебник (Русский)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Язык Си в примерах/Калькулятор выражений в обратной польской нотации — Викиучебник</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ru.wikibooks.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Язык_Си_в_примерах/Калькулятор_выражений_в_обратной_польской_нотации";
+var wgTitle = "Язык Си в примерах/Калькулятор выражений в обратной польской нотации";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "2515";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ru";
+var wgContentLanguage = "ru";
+var wgBreakFrames = false;
+var wgCurRevisionId = "22553";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-c .de1, .source-c .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-c  {}
+.source-c .head {}
+.source-c .foot {}
+.source-c .imp {font-weight: bold; color: red;}
+.source-c .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-c li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-c li.li2 {font-weight: bold;}
+.source-c .kw1 {color: #b1b100;}
+.source-c .kw2 {color: #000000; font-weight: bold;}
+.source-c .kw3 {color: #000066;}
+.source-c .kw4 {color: #993333;}
+.source-c .co1 {color: #808080; font-style: italic;}
+.source-c .co2 {color: #339933;}
+.source-c .coMULTI {color: #808080; font-style: italic;}
+.source-c .es0 {color: #000099; font-weight: bold;}
+.source-c .br0 {color: #66cc66;}
+.source-c .st0 {color: #ff0000;}
+.source-c .nu0 {color: #cc66cc;}
+.source-c .me1 {color: #202020;}
+.source-c .me2 {color: #202020;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Язык_Си_в_примерах_Калькулятор_выражений_в_обратной_польской_нотации">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Язык Си в примерах/Калькулятор выражений в обратной польской нотации</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Материал из Викиучебника.</h3>
+			<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85" title="Язык Си в примерах">Язык Си в примерах</a></span></div>
+									<div id="jump-to-nav">Перейти к: <a href="#column-one">навигация</a>, <a href="#searchInput">поиск</a></div>			<!-- start content -->
+			<div style="float:right; width: 27%; margin-left:1em; margin-bottom: 0.5em; background:#f7faff; border:#567ec4 outset medium;padding:0.5em;"><span style="font:bold 130% serif;margin-left:1.5em"><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85" title="Язык Си в примерах">Язык Си в примерах</a></span><br />
+<hr />
+<ol>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D1%8F_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC" title="Язык Си в примерах/Компиляция программ">Компиляция&#160;программ</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B5%D0%B9%D1%88%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0_%C2%ABHello_World%C2%BB" title="Язык Си в примерах/Простейшая программа «Hello World»">Простейшая программа «Hello World»</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A3%D1%87%D0%B8%D0%BC%D1%81%D1%8F_%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B%D0%B2%D0%B0%D1%82%D1%8C" title="Язык Си в примерах/Учимся складывать">Учимся складывать</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D1%83%D0%BC" title="Язык Си в примерах/Максимум">Максимум</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0_%D1%83%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F" title="Язык Си в примерах/Таблица умножения">Таблица умножения</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/ASCII_%D0%BA%D0%BE%D0%B4%D1%8B_%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%BE%D0%B2" title="Язык Си в примерах/ASCII коды символов">ASCII коды символов</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%92%D0%B5%D1%80%D1%85%D0%BD%D0%B8%D0%B9_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80" title="Язык Си в примерах/Верхний регистр">Верхний регистр</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A1%D0%BA%D0%BE%D0%B1%D0%BE%D1%87%D0%BA%D0%B8" title="Язык Си в примерах/Скобочки">Скобочки</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B0%D0%BB" title="Язык Си в примерах/Факториал">Факториал</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A1%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%B0" title="Язык Си в примерах/Степень числа">Степень числа</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A2%D1%80%D0%B5%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA_%D0%9F%D0%B0%D1%81%D0%BA%D0%B0%D0%BB%D1%8F" title="Язык Си в примерах/Треугольник Паскаля">Треугольник Паскаля</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%BE%D1%80%D0%B5%D0%BD%D1%8C_%D1%83%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" title="Язык Си в примерах/Корень уравнения">Корень уравнения</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F" title="Язык Си в примерах/Система счисления">Система счисления</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0" title="Язык Си в примерах/Сортировка">Сортировка</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%91%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0_complex" title="Язык Си в примерах/Библиотека complex">Библиотека complex</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%BD%D0%B0_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B5_qsort" title="Язык Си в примерах/Сортировка на основе qsort">Сортировка на основе qsort</a></li>
+<li><strong class="selflink">RPN калькулятор</strong></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8_%D0%BD%D0%B0_Bison" title="Язык Си в примерах/Калькулятор выражений в обратной польской нотации на Bison">RPN калькулятор на Bison</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%8F_%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0" title="Язык Си в примерах/Простая грамматика">Простая грамматика</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%C2%AB%D0%A0%D0%B0%D1%81%D1%87%D1%91%D1%82_%D1%81%D0%BE%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D1%81%D1%85%D0%B5%D0%BC%D1%8B%C2%BB" title="Язык Си в примерах/Задача «Расчёт сопротивления схемы»">Задача «Расчёт сопротивления схемы»</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%8F_%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_%D0%BA%D0%BE%D0%BD%D0%B5%D1%87%D0%BD%D0%BE%D0%B3%D0%BE_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B0" title="Язык Си в примерах/Простая реализация конечного автомата">Простая реализация конечного автомата</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B0%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B9_%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8" title="Язык Си в примерах/Использование аргументов командной строки">Использование аргументов командной строки</a></li>
+<li><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%A7%D1%82%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B8_%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C_%D1%86%D0%B5%D0%BB%D0%BE%D0%B3%D0%BE_%D1%87%D0%B8%D1%81%D0%BB%D0%B0_%D0%B1%D0%B5%D0%B7_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_stdio" title="Язык Си в примерах/Чтение и печать целого числа без использования stdio">Чтение и печать без использования stdio</a></li>
+</ol>
+</div>
+<table id="toc" class="toc" summary="Содержание">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Содержание</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.D0.A7.D1.82.D0.BE_.D1.82.D0.B0.D0.BA.D0.BE.D0.B5_.D0.BE.D0.B1.D1.80.D0.B0.D1.82.D0.BD.D0.B0.D1.8F_.D0.BF.D0.BE.D0.BB.D1.8C.D1.81.D0.BA.D0.B0.D1.8F_.D0.BD.D0.BE.D1.82.D0.B0.D1.86.D0.B8.D1.8F.3F"><span class="tocnumber">1</span> <span class="toctext">Что такое обратная польская нотация?</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D0.BF.D1.80.D0.BE.D0.B3.D1.80.D0.B0.D0.BC.D0.BC.D1.8B"><span class="tocnumber">1.1</span> <span class="toctext">Пример работы программы</span></a></li>
+<li class="toclevel-2"><a href="#.D0.97.D0.B0.D0.B4.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber">1.2</span> <span class="toctext">Задания</span></a></li>
+<li class="toclevel-2"><a href="#.D0.97.D0.B0.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber">1.3</span> <span class="toctext">Замечания</span></a></li>
+<li class="toclevel-2"><a href="#.D0.A0.D0.B5.D0.B0.D0.BB.D0.B8.D0.B7.D0.B0.D1.86.D0.B8.D1.8F_.D0.BA.D0.B0.D0.BB.D1.8C.D0.BA.D1.83.D0.BB.D1.8F.D1.82.D0.BE.D1.80.D0.B0_.D1.81_.D1.8F.D0.B2.D0.BD.D1.8B.D0.BC_.D0.BE.D0.BF.D1.80.D0.B5.D0.B4.D0.B5.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5.D0.BC_.D0.BE.D0.BF.D0.B5.D1.80.D0.B0.D1.86.D0.B8.D0.B9_.D1.81.D0.BE_.D1.81.D1.82.D0.B5.D0.BA.D0.BE.D0.BC"><span class="tocnumber">1.4</span> <span class="toctext">Реализация калькулятора с явным определением операций со стеком</span></a></li>
+<li class="toclevel-2"><a href="#.D0.92.D1.8B.D0.B4.D0.B5.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5_.D1.81.D1.82.D0.B5.D0.BA.D0.B0_.D0.B2_.D0.BE.D1.82.D0.B4.D0.B5.D0.BB.D1.8C.D0.BD.D1.83.D1.8E_.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.82.D1.83.D1.80.D1.83"><span class="tocnumber">1.5</span> <span class="toctext">Выделение стека в отдельную структуру</span></a></li>
+<li class="toclevel-2"><a href="#.D0.97.D0.B0.D0.B4.D0.B0.D0.BD.D0.B8.D1.8F_2"><span class="tocnumber">1.6</span> <span class="toctext">Задания</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "показать"; var tocHideText = "убрать"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".D0.A7.D1.82.D0.BE_.D1.82.D0.B0.D0.BA.D0.BE.D0.B5_.D0.BE.D0.B1.D1.80.D0.B0.D1.82.D0.BD.D0.B0.D1.8F_.D0.BF.D0.BE.D0.BB.D1.8C.D1.81.D0.BA.D0.B0.D1.8F_.D0.BD.D0.BE.D1.82.D0.B0.D1.86.D0.B8.D1.8F.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=1" title="Править секцию: Что такое обратная польская нотация?">править</a>]</span> <span class="mw-headline">Что такое обратная польская нотация?</span></h2>
+<p>Рассмотрим запись арифметческих выражений, в которых сначала следуют два операнда арифметической операции, а затем знак операции. Например:</p>
+<table border="1">
+<tr>
+<td><b>Обратная польская нотация</b></td>
+<td><b>Обычная нотация</b></td>
+</tr>
+<tr>
+<td>2 3 +</td>
+<td>2 + 3</td>
+</tr>
+<tr>
+<td>(2 3 *) (4 5 *) +</td>
+<td>(2 * 3) + (4 * 5)</td>
+</tr>
+<tr>
+<td>2 3 4 5 6 * + - /</td>
+<td>2 / (3 - (4 + (5 * 6)))</td>
+</tr>
+</table>
+<p>Это нотация записи выражений называется <a href="http://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D1%8F" class="extiw" title="w:Обратная_польская_нотация">обратной польской нотацией (записью)</a> (Reverse Polish Notation, RPN). В теории языков программирования эта нотация называется <i>постфиксной нотацией</i>. Обычная нотация называется алгебраической или <i>инфиксной нотацией</i> («ин» от англ. <i>inside</i>, то есть между операндами). Есть также префиксная нотация, активно используемая в языке Си (сначала имя функции, а затем её аргументы), а также в языке <a href="http://ru.wikipedia.org/wiki/LISP" class="extiw" title="w:LISP">LISP</a>.</p>
+<p>Заметьте, что скобки в обратной польской нотации не нужны. В частности, если во втором примере мы опустим скобки, выражение по прежнему будет интерпретироваться однозначно.</p>
+<p>Транслятор RPN-выражений основан на <a href="http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B5%D0%BA" class="extiw" title="w:Стек">стэке</a>. Каждое следующее число помещается в стэк. Если встречается знак операции (обозначим его <tt>*</tt>), то два числа из стека извлекаются (<tt>a = pop()</tt>, <tt>b = pop()</tt>), для них вычисляется значение соответствующей бинарной арифметической операции, и результат помещается в стек (<tt>push(a * b)</tt>).</p>
+<p><br />
+<b>Задача:</b> Напишите программу-калькулятор арифметических выражений записанных в обратной польской ноации.</p>
+<p>Ниже приведена постая реализация такого калькулятора на языке Си. Роль стека играет обычный массив (stack[1000]). Переменная <tt>sp</tt> (stack pointer) равна количеству элементов в стеке. Число (<tt>sp - 1</tt>) равно индексу ячейки, являющейся вершиной стека.</p>
+<div dir="ltr">
+<pre class="source-c">
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ <span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+ <span class="br0">{</span>
+     <span class="kw4">int</span> stack<span class="br0">[</span><span class="nu0">1000</span><span class="br0">]</span>;  
+     <span class="co1">// sp = индекс ячейки, куда будет push-иться очередное число</span>
+     <span class="kw4">int</span> sp =<span class="nu0">0</span>;      <span class="co1">// (sp-1) = индекс ячейки, являющейся вершиной стека</span>
+     <span class="kw1">while</span> <span class="br0">(</span> !feof<span class="br0">(</span>stdin<span class="br0">)</span> <span class="br0">)</span> <span class="br0">{</span>
+         <span class="kw4">int</span> c = getchar<span class="br0">(</span><span class="br0">)</span>;
+         <span class="kw4">int</span> x;
+         <span class="kw1">switch</span> <span class="br0">(</span>c<span class="br0">)</span> <span class="br0">{</span>
+             <span class="kw1">case</span>  <span class="st0">' '</span>:
+             <span class="kw1">case</span> <span class="st0">'<span class="es0">\n</span>'</span>:
+                 <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'='</span>:
+                 <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"Result = %d<span class="es0">\n</span>"</span>, stack<span class="br0">[</span>sp - <span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span>;  sp--;
+                 <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'+'</span>:
+                stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> = stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> + stack<span class="br0">[</span>sp<span class="nu0">-1</span><span class="br0">]</span>;  sp--;
+                <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'-'</span>:
+                stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> = stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> - stack<span class="br0">[</span>sp<span class="nu0">-1</span><span class="br0">]</span>;  sp--;
+                <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'*'</span>:
+                stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> = stack<span class="br0">[</span>sp<span class="nu0">-1</span><span class="br0">]</span> * stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span>;  sp--;
+                <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'/'</span>:
+               stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> = stack<span class="br0">[</span>sp<span class="nu0">-2</span><span class="br0">]</span> / stack<span class="br0">[</span>sp<span class="nu0">-1</span><span class="br0">]</span>;   sp--;
+                <span class="kw2">break</span>;
+             <span class="kw1">default</span>:
+                 ungetc <span class="br0">(</span>c, stdin<span class="br0">)</span>; <span class="co1">// вернуть символ обратно в поток</span>
+                 <span class="kw1">if</span> <span class="br0">(</span>scanf<span class="br0">(</span><span class="st0">"%d"</span>, &amp;x<span class="br0">)</span> != <span class="nu0">1</span><span class="br0">)</span> <span class="br0">{</span>
+                     fprintf<span class="br0">(</span>stderr, <span class="st0">"Can't read integer<span class="es0">\n</span>"</span><span class="br0">)</span>;
+                     <span class="kw1">return</span> <span class="nu0">-1</span>;
+                 <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+                     stack<span class="br0">[</span>sp<span class="br0">]</span> = x;                       sp++;
+                 <span class="br0">}</span>
+         <span class="br0">}</span>
+     <span class="br0">}</span>
+     <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"Result = %d<span class="es0">\n</span>"</span>,stack<span class="br0">[</span>sp<span class="nu0">-1</span><span class="br0">]</span><span class="br0">)</span>;
+     <span class="kw1">return</span> <span class="nu0">0</span>;
+ <span class="br0">}</span>
+</pre></div>
+<p><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D0.BF.D1.80.D0.BE.D0.B3.D1.80.D0.B0.D0.BC.D0.BC.D1.8B"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=2" title="Править секцию: Пример работы программы">править</a>]</span> <span class="mw-headline">Пример работы программы</span></h3>
+<pre>
+&gt; ./stack
+1 2 3 4 + * + =
+Result = 15
+1 2 + 3 4 + * =
+Result = 21
+</pre>
+<p><br /></p>
+<p><a name=".D0.97.D0.B0.D0.B4.D0.B0.D0.BD.D0.B8.D1.8F"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=3" title="Править секцию: Задания">править</a>]</span> <span class="mw-headline">Задания</span></h3>
+<ol>
+<li>Введите входные следующие входные данные <tt>1 2 3 * * * * = = = =</tt>. К чему это привело? Добавьте к приведенной программе «защиту от дурака».</li>
+<li>Введите входные данные состоящие из 10000 единиц и 9999 знаков +. Сможет ли программа отработать на этих входных данных?</li>
+</ol>
+<p><br /></p>
+<p><a name=".D0.97.D0.B0.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=4" title="Править секцию: Замечания">править</a>]</span> <span class="mw-headline">Замечания</span></h3>
+<ol>
+<li>У данной программы есть целый ряд недостатков:</li>
+</ol>
+<dl>
+<dd>
+<ul>
+<li>Программа не будет работать, если количество элементов в стеке превысит 1000</li>
+<li>Программа не замечает некорректные входы и отрабатывает их с непредсказуемыми последстиями.</li>
+<li>В программе явно не отображено, что присутствует структура данных «стек». Это затрудняет понимание логики работы этой программы и усложняет сторонним разработчикам доработку данной программы.</li>
+</ul>
+</dd>
+</dl>
+<p><br /></p>
+<p><a name=".D0.A0.D0.B5.D0.B0.D0.BB.D0.B8.D0.B7.D0.B0.D1.86.D0.B8.D1.8F_.D0.BA.D0.B0.D0.BB.D1.8C.D0.BA.D1.83.D0.BB.D1.8F.D1.82.D0.BE.D1.80.D0.B0_.D1.81_.D1.8F.D0.B2.D0.BD.D1.8B.D0.BC_.D0.BE.D0.BF.D1.80.D0.B5.D0.B4.D0.B5.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5.D0.BC_.D0.BE.D0.BF.D0.B5.D1.80.D0.B0.D1.86.D0.B8.D0.B9_.D1.81.D0.BE_.D1.81.D1.82.D0.B5.D0.BA.D0.BE.D0.BC"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=5" title="Править секцию: Реализация калькулятора с явным определением операций со стеком">править</a>]</span> <span class="mw-headline">Реализация калькулятора с явным определением операций со стеком</span></h3>
+<p>Введем операции работы со стеком в программу. Это повысит читаемость кода и облегчит понимание заложенной в программу логики.</p>
+<div dir="ltr">
+<pre class="source-c">
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ <span class="co2">#include &lt;malloc.h&gt;</span>
+ 
+ <span class="kw4">int</span> sp = <span class="nu0">0</span>;
+ <span class="kw4">int</span> stack<span class="br0">[</span><span class="nu0">1000</span><span class="br0">]</span>;
+ <span class="kw4">int</span> pop<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span> <span class="br0">{</span>
+     <span class="kw1">if</span> <span class="br0">(</span>sp &gt; <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span>
+          <span class="kw1">return</span> stack<span class="br0">[</span>--sp<span class="br0">]</span>;
+     <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span> 
+          fprintf<span class="br0">(</span>stderr, <span class="st0">"Невозможно выполнить POP для пустого стека.<span class="es0">\n</span>"</span><span class="br0">)</span>;
+          <span class="kw1">return</span> <span class="nu0">0</span>;
+     <span class="br0">}</span>
+ <span class="br0">}</span>;
+ <span class="kw4">void</span> push<span class="br0">(</span><span class="kw4">int</span> a<span class="br0">)</span> <span class="br0">{</span>
+     stack<span class="br0">[</span>sp++<span class="br0">]</span> = a;
+ <span class="br0">}</span>;
+ <span class="kw4">int</span> empty<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+     <span class="kw1">return</span> <span class="br0">(</span>sp == <span class="nu0">0</span><span class="br0">)</span>;
+ <span class="br0">}</span>
+ 
+ <span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+     <span class="kw4">int</span> i;
+     <span class="kw1">while</span> <span class="br0">(</span>!feof<span class="br0">(</span>stdin<span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+         <span class="kw4">int</span> c = getchar<span class="br0">(</span><span class="br0">)</span>;
+         <span class="kw4">int</span> x;
+         <span class="kw1">switch</span> <span class="br0">(</span>c<span class="br0">)</span> <span class="br0">{</span>
+             <span class="kw1">case</span> <span class="st0">'<span class="es0">\n</span>'</span>:
+             <span class="kw1">case</span> <span class="st0">' '</span> : <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'='</span> : <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"Result = %d<span class="es0">\n</span>"</span>, s.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="nu0">27</span>  : <span class="kw1">goto</span> RESULT;
+             <span class="kw1">case</span> <span class="st0">'+'</span> : push<span class="br0">(</span>pop<span class="br0">(</span><span class="br0">)</span> + pop<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'-'</span> : push<span class="br0">(</span>-pop<span class="br0">(</span><span class="br0">)</span> + pop<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="kw2">break</span>;
+             <span class="kw1">case</span> <span class="st0">'*'</span> : push<span class="br0">(</span>pop<span class="br0">(</span><span class="br0">)</span> * pop<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="kw2">break</span>;
+             <span class="kw1">default</span>:
+                 ungetc<span class="br0">(</span>c, stdin<span class="br0">)</span>;
+                 <span class="kw1">if</span> <span class="br0">(</span>scanf<span class="br0">(</span><span class="st0">"%d"</span>, &amp;x<span class="br0">)</span> != <span class="nu0">1</span><span class="br0">)</span> <span class="br0">{</span>
+                     fprintf<span class="br0">(</span>stderr, <span class="st0">"Can't read integer<span class="es0">\n</span>"</span><span class="br0">)</span>;
+                     <span class="kw1">return</span> <span class="nu0">-1</span>;
+                 <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+                     s.<span class="me1">push</span><span class="br0">(</span>x<span class="br0">)</span>;
+                 <span class="br0">}</span>
+                 <span class="kw2">break</span>;
+          <span class="br0">}</span>
+    <span class="br0">}</span>
+ RESULT:
+     i = <span class="nu0">0</span>;
+     <span class="kw1">while</span> <span class="br0">(</span> !empty<span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="br0">{</span>
+         <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"Stack[%d] = %d<span class="es0">\n</span>"</span>, i,  s.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+         i++;
+     <span class="br0">}</span>
+     <span class="kw1">return</span> <span class="nu0">0</span>;
+ <span class="br0">}</span>
+</pre></div>
+<p>В данной программе в некоторой степени реализована «защита от дурака», а именно, если вводится выражение, в котором число операций превосходит число помещенных в стек элементов (например <tt>1 2 + *</tt>), то программа не допустит уменьшения переменной <tt>sp</tt> до отрицательных значений, а выдаст предупреждение «Невозможно выполнить POP для пустого стека»..</p>
+<p><a name=".D0.92.D1.8B.D0.B4.D0.B5.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5_.D1.81.D1.82.D0.B5.D0.BA.D0.B0_.D0.B2_.D0.BE.D1.82.D0.B4.D0.B5.D0.BB.D1.8C.D0.BD.D1.83.D1.8E_.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.82.D1.83.D1.80.D1.83"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=6" title="Править секцию: Выделение стека в отдельную структуру">править</a>]</span> <span class="mw-headline">Выделение стека в отдельную структуру</span></h3>
+<p>Кроме защиты от дурака-пользователя необходима еще защита от дурака-программиста, который возьмет ваш код, решит его использовать и дорабатывать. Точнее, нужно просто соблюдать некоторые правила, которые не позволили бы программисту, который включил ваш код в свой проект получить ошибки, связанные с пересечением имён, испольуемых им в своих файлах и вами, в файле <tt>stack.c</tt>.</p>
+<p>В первую очередь, в принципе не рекомендуется объявлять глобальные переменные, особенно такие, которые не являются всеобщим достоянием, а относятся к внутренним делам отдельного модуля (например, нашей программы, для работы со стеком).</p>
+<p>Кроме того, рекомендуется имена функций присутствующие в билиотеке снабжать префиксом. Например, имена функций, связанных со стеком, логично снабдить префиксом <tt>stack</tt>.</p>
+<p>В итоге получаем следующующую, «более правильную» реализацию стека:</p>
+<div dir="ltr">
+<pre class="source-c">
+<span class="co2">#include &lt;malloc.h&gt;</span>
+    <span class="coMULTI">/* Структура с указателем на массив int и служебной ифнормацией
+     */</span>
+    <span class="kw4">typedef</span> <span class="kw4">struct</span> stack <span class="br0">{</span>
+        <span class="kw4">int</span> *data;
+        <span class="kw4">int</span> last = <span class="nu0">0</span>;
+        <span class="kw4">int</span> data_size;
+    <span class="br0">}</span> stack_t;
+    <span class="coMULTI">/* Конструктор стека.
+     * Принимает начальный размер стека и возвращает указатель на новый стек
+     */</span>
+    stack_t* stack_new<span class="br0">(</span><span class="kw4">int</span> initial_size<span class="br0">)</span> <span class="br0">{</span>
+        stack_t *stack = <span class="br0">(</span>stack_t*<span class="br0">)</span> malloc<span class="br0">(</span><span class="kw4">sizeof</span><span class="br0">(</span>stack_t<span class="br0">)</span><span class="br0">)</span>;
+        stack-&gt;data_size = initial_size;
+        <span class="kw1">if</span><span class="br0">(</span>stack-&gt;data_size &lt;= <span class="nu0">0</span><span class="br0">)</span> stack-&gt;data_size = <span class="nu0">100</span>;
+        stack-&gt;last = <span class="nu0">0</span>;
+        stack-&gt;data = <span class="br0">(</span><span class="kw4">int</span>*<span class="br0">)</span> malloc<span class="br0">(</span><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>* stack-&gt;data_size<span class="br0">)</span>;
+        <span class="kw1">return</span> stack;
+    <span class="br0">}</span>
+    <span class="coMULTI">/* Деструктор стека.
+     * Принимает на вход указатель на стек и освобождает занятую им память.
+     */</span>
+    <span class="kw4">void</span> stack_delete<span class="br0">(</span>stack_t *stack<span class="br0">)</span> <span class="br0">{</span>
+        free<span class="br0">(</span>stack-&gt;data<span class="br0">)</span>
+        free<span class="br0">(</span>stack<span class="br0">)</span>;
+    <span class="br0">}</span>
+    <span class="coMULTI">/* Операция push
+     * Принимает указатель на стек и добавляемый элемент.
+     * При необходимости увеличивает количество памяти для  массива элементов.
+     */</span>
+    <span class="kw4">void</span> stack_push<span class="br0">(</span>stack_t *stack, <span class="kw4">int</span> a<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>stack-&gt;last == stack-&gt;data_size<span class="br0">)</span> <span class="br0">{</span>
+            stack-&gt;data_size = <span class="br0">(</span>stack-&gt;data_size * <span class="nu0">3</span> + <span class="nu0">1</span><span class="br0">)</span> / <span class="nu0">2</span>;
+            stack-&gt;data = <span class="br0">(</span><span class="kw4">int</span>*<span class="br0">)</span>realloc<span class="br0">(</span>stack-&gt;data,  stack-&gt;data_size * <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span>;
+        <span class="br0">}</span>
+        stack-&gt;data<span class="br0">[</span>stack-&gt;last++<span class="br0">]</span> = a;
+    <span class="br0">}</span>
+    <span class="coMULTI">/* Операция pop
+     * Принимает указатель на стек и адрес значения верхнего элемента.
+     * Возвращает 1 в случае, если стек был непуст, и 0 -- в противном случае.
+     */</span>
+    <span class="kw4">int</span> stack_pop<span class="br0">(</span>stack_t *stack, <span class="kw4">int</span> *a<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>stack-&gt;last &gt; <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span>
+            *a = data<span class="br0">[</span>--stack-&gt;last<span class="br0">]</span>;
+            <span class="kw1">return</span> <span class="nu0">1</span>;
+        <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+            fprintf<span class="br0">(</span>stderr, <span class="st0">"Попытка извлечь элемент из пустого стека!<span class="es0">\n</span>"</span><span class="br0">)</span>;
+            <span class="kw1">return</span> <span class="nu0">0</span>;
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+</pre></div>
+<p><a name=".D0.97.D0.B0.D0.B4.D0.B0.D0.BD.D0.B8.D1.8F_2"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit&amp;section=7" title="Править секцию: Задания">править</a>]</span> <span class="mw-headline">Задания</span></h3>
+<ol>
+<li>Реализуйте RPN-калькулятор, используя эту реализацию стека. Выделите вычисление RPN-выражения в отдельную функцию.</li>
+<li>Постройте систему тестов и проверьте, что ваш калькулятор успешно проходит все тесты и «защищён от дурака» (как дурака-пользователя программы, так и дурака-программиста, использующего ваш стек и калькулятор).</li>
+</ol>
+
+<!-- 
+Pre-expand include size: 3106 bytes
+Post-expand include size: 3104 bytes
+Template argument size: 0 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key ruwikibooks:pcache:idhash:2515-0!1!0!!ru!2 and timestamp 20070921054921 -->
+<div class="printfooter">
+Получено с <a href="http://ru.wikibooks.org/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8">http://ru.wikibooks.org/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8</a></div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Просмотры</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8" title="Содержание статьи [c]" accesskey="c">Страница</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit" title="Обсуждение статьи [t]" accesskey="t">Обсуждение</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=edit" title="Эту статью можно изменять. Перед сохранением изменений, пожалуйста, нажмите кнопку предварительного просмотра для визуальной проверки результата [e]" accesskey="e">Править</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;action=history" title="Журнал изменений страницы [h]" accesskey="h">История</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Личные инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Userlogin&amp;returnto=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8" title="Здесь можно зарегистрироваться в системе, но это необязательно [o]" accesskey="o">Представиться системе</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-textbook.png);" href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Навигация</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-recentchanges"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchanges" title="Список последних изменений [r]" accesskey="r">Изменения</a></li>
+				<li id="n-.D0.A1.D0.BF.D1.80.D0.B0.D0.B2.D0.BA.D0.B0"><a href="/wiki/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0">Справка</a></li>
+				<li id="n-.D0.90.D0.B2.D1.82.D0.BE.D1.80.D1.8B"><a href="/wiki/%D0%90%D0%B2%D1%82%D0%BE%D1%80%D1%8B">Авторы</a></li>
+				<li id="n-.D0.9A.D0.B0.D1.82.D0.B0.D0.BB.D0.BE.D0.B3"><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%92%D1%81%D1%91">Каталог</a></li>
+				<li id="n-.D0.9F.D0.BB.D0.B0.D0.BD.D1.8B-.D0.B8-.D0.B7.D0.B0.D1.8F.D0.B2.D0.BA.D0.B8"><a href="/wiki/%D0%9F%D0%BB%D0%B0%D0%BD%D1%8B_%D0%B8_%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B8">Планы и заявки</a></li>
+				<li id="n-.D0.94.D0.B5.D0.BB.D0.B0"><a href="/wiki/%D0%94%D0%B5%D0%BB%D0%B0">Дела</a></li>
+				<li id="n-.D0.A4.D0.BE.D1.80.D1.83.D0.BC"><a href="/wiki/%D0%A4%D0%BE%D1%80%D1%83%D0%BC">Форум</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Поиск</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Искать это слово [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Перейти" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Найти" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Whatlinkshere/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8" title="Список всех страниц, которые ссылаются на эту страницу [j]" accesskey="j">Ссылки сюда</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchangeslinked/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8" title="Последние изменения в страницах, на которые ссылается эта страница [k]" accesskey="k">Связанные правки</a></li>
+<li id="t-upload"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Upload" title="Загрузить изображения или мультимедиа-файлы [u]" accesskey="u">Закачать файл</a></li>
+<li id="t-specialpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Specialpages" title="Список служебных страниц [q]" accesskey="q">Спецстраницы</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;printable=yes" title="Версия для печати этой страницы [p]" accesskey="p">Для печати</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA_%D0%A1%D0%B8_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D0%B8&amp;oldid=22553" title="Постоянная ссылка на эту версию страницы">Адрес версии</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Последнее изменение этой страницы: 06:39, 18 июля 2007.</li>
+				<li id="copyright">Текст распространяется по <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>.</li>
+				<li id="privacy"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B8%D0%BA:%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Викиучебник:Политика конфиденциальности"><small>О приватности</small></a></li>
+				<li id="about"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B8%D0%BA:%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5" title="Викиучебник:Введение">Введение</a></li>
+				<li id="disclaimer"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B8%D0%BA:%D0%9E%D1%82%D0%BA%D0%B0%D0%B7_%D0%BE%D1%82_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Викиучебник:Отказ от ответственности"><small>Предупреждения</small></a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv154 in 0.122 secs. --></body></html>

@@ -1,0 +1,273 @@
+
+<html>
+<head>
+<title>Преобразование выражения в постфиксную форму (4 операции) - Библиотека алгоритмов</title>
+
+<meta name="keywords" content="алгоритм c++ delphi visual basic">
+
+<style type="text/css">
+<!--
+h2 { font-family: Tahoma,sans-serif; font-size : larger; }
+h3 { font-family: Arial,sans-serif; font-size : 12pt;}
+input { font-family: Courier New,monospace; font-size : 9pt; }
+ul,ol { text-align:justify; }
+
+a.ref { text-decoration: none; }
+a.ref:hover { text-decoration: underline; }
+a.leftmenu { font-family: Tahoma,sans-serif; font-weight:none; font-size:8pt; text-decoration: none; color:#cc0000;}
+a.leftmenu:hover { text-decoration: underline;}
+a.artlist {color:#111177; text-decoration: none;}
+a.artlist:visited {color:#111177; text-decoration: none;}
+a.artlist:hover {color:#111177; text-decoration: underline;}
+a.special {color:#000066; font-size : 10pt;}
+a.special:visited {color:#000066; font-size : 10pt;}
+a.specialatt {color:#aa0000; font-size : 10pt; font-weight:bold; }
+a.specialatt:visited {color:#aa0000; font-size : 10pt; font-weight:bold; }
+
+.compact { margin-top:0; margin-bottom:0; }
+.code { font-family: Courier New, monospace; font-size : 9pt; color:#006699; }
+.smalltext { font-size : 10pt; }
+.halfsmalltext { font-size : 11pt; }
+.attention { color:#aa0000; font-weight:bold; }
+.leftmenusection { font-family: Tahoma,sans-serif; font-weight:bold; font-size:8pt; text-decoration: none; color:#bb0000;}
+-->
+</style>
+</head>
+
+<body bgcolor=F5F5F5 text="#333333" link="#000099" vlink="#222255" alink="#552255" bottommargin=0 topmargin=0 marginwidth=0 marginheight=0 rightmargin=0 leftmargin=0>
+
+<table cellpadding=0 cellspacing=0 border=0 width=100%>
+
+<!-- LOGO 
+<td bgcolor=#F5F5F5 background="/img/backf1.jpg"><img src="/img/topf1.jpg" width=600 height=119 border=0 alt="">
+-->
+<tr><td background="/img/nettopback.png"><!-- gif --><img src="/img/logoru1.png" width=500 height=119 border=0 alt=""><br>
+</td>
+</tr>
+
+<!-- LOGO BOTTOM LINE -->
+<tr>
+<td bgcolor=#0056A0 height=1>
+</td>
+</tr>
+
+<!-- NAV BOTTOM LINE -->
+<!-- <tr>
+<td bgcolor=#0056A0 height=1>
+</td>
+</tr> -->
+
+<!-- NAV, NAV2 AND CONTENT -->
+<tr>
+<td align=center bgcolor=white>
+<table cellpadding=0 cellspacing=0 border=0 width=100%>
+<tr>
+
+<!--
+<td bgcolor=white align=left valign=top width=10>
+<img src="/empty.gif" width=10 height=1 border=0 alt=""> 
+</td>
+-->
+
+<td bgcolor=#F0F0F8 align=left valign=top width=20>
+
+<table cellpadding=10 cellspacing=0 border=0 width=100%>
+<tr><td bgcolor=#F0F0F8 nowrap>
+
+
+<b><span class=leftmenusection>Содержание</span></b>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/">АЛГОРИТМЫ</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/articles/">Статьи</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="http://forum.sources.ru/index.php?showforum=43">Форум</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/links.php">Коллекция ссылок</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/sitemap.php">Карта сайта</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="http://www.alglib.net/">Английская версия</a>
+<br>
+
+<b><span class=leftmenusection>Сайт и автор</span></b>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/news.php">Новости</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="http://subscribe.ru/catalog/comp.prog.alglibnews">Рассылка новостей</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/aboutsite.php">О сайте</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/faq.php">FAQ</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/contact.php">Контакты</a>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="/copyrules.php">TERMS OF USE</a>
+<br>
+
+<b><span class=leftmenusection>Друзья</span></b>
+<br>
+
+<img src="/empty.gif" width=10 height=1 border=0 alt="">
+<a class=leftmenu href="http://www.sources.ru/">SOURCES.RU</a>
+
+
+
+</td></tr>
+</table>
+
+</td>
+
+
+<td bgcolor=#B0B0C0 align=left valign=top width=1>
+<img src="/empty.gif" width=1 height=1 border=0 alt="">
+</td>
+
+<td bgcolor=white align=left valign=top width=10>
+<img src="/empty.gif" width=40 height=1 border=0 alt=""> 
+</td>
+
+
+<td valign=top>
+<div style="margin-top:10px; margin-bottom:10px;"><span class=smalltext><a class=special href="/">Алгоритмы</a> - <a class=special href="/expressions/">Работа с формулами</a> - Преобразование выражения в постфиксную форму (4 операции)</span></div><table cellpadding=6 cellspacing=0 border=0 width=100% bgcolor=E8E8E8 style="margin-top:10px; margin-bottom:10px;">
+<tr>
+<td>
+<h2 class=compact>Преобразование выражения в постфиксную форму (4 операции)</h2>
+
+</td>
+</tr>
+</table><!-- Преобразование выражения в польскую запись.(4 операции) -->
+
+<p align=justify>
+Алгоритм предназначен для преобразования формулы к виду удобному для вычислений, а именно к обратной польской записи (постфиксной форме). Приведу несколько примеров, для понимания о чем собственно разговор: </p>
+
+<table  bgColor=black border=0 cellPadding=5 cellSpacing=1><tr bgcolor=silver><th>Исходная формула </th><th> Польская запись </th></tr><tr bgcolor=white><td>a+b </td><td> a b + </td></tr><tr bgcolor=white><td>a+b*c </td><td> a b c * + </td></tr><tr bgcolor=white><td>(a+b)*c </td><td> a b +c * </td></tr><tr bgcolor=white><td>d*(a+b)*c </td><td> d a b + * c *</td></tr></table>
+
+<p align=justify>
+Алгоритм прислал мне <a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;&#118;&#107;&#111;&#115;&#104;&#064;&#109;&#097;&#105;&#108;&#114;&#117;&#046;&#099;&#111;&#109;">Владимир Кошелев</a>, за что ему большое спасибо, насколько я понимаю, алгоритм обсуждался в конференции RU.ALGORITHMS. Поскольку я не силен в ФИДО (к глубокому своему сожалению), более подробно указать ничего не могу.
+</p>
+
+<p align=justify>
+Данный алгоритм преобразует формулу помещенную в массив символов <font face="Courier New"><b>Eq</b></font> длины <font face="Courier New"><b>n</b></font>, при этом предполагается, что:
+<ol><li>имена переменных начинаются с символов английского алфавита и содержат только символы и цифры, длина имени переменной произвольна. </li>
+<li>в формуле используются только 4 арифметические операции: +, -, *, /</li>
+<li>в формуле допустимо использование скобок вида '(',')'. </li>
+</ol>
+В случае если алгоритм не может обработать формулу, то в качестве результата выдается "ERROR". 
+</p>
+
+<p align=justify>
+Алгоритм дополнительно использует две функции:
+<ol><li><font face="Courier New"><b>function Sym(a:Char):byte;</b></font> - выдает <i>0</i>, если аргумент цифра; <i>1</i> если аргумент символ английского алфавита; и <i>2</i> во всех остальных случаях.</li>
+<li><font face="Courier New"><b>function Prior(a:Char):byte;</b></font> - выдает <i>0</i>, если аргумент '('; <i>1</i> если аргумент ')', '+' или '-'; <i>2</i> если аргумент '*' или '/'; и <i>255</i> во всех остальных случаях. </li>
+</ol>
+Так же в алгоритме используется стек, который реализован при помощи массива <font face="Courier New"><b>Stack</b></font>, а номер элемента на вершине стека задается переменной <font face="Courier New"><b>Top</b></font>. 
+</p>
+
+<p align=justify>
+Работа алгоритма достаточно тривиальна мы проходим по массиву Eq выделяя пять возможных ситуаций:
+<ol><li>Символ английского алфавита, значит мы имеем переменную - считываем ее имя и помещаем в результирующую строку.</li>
+<li>Цифра, значит мы имеем число - считываем его полностью и помещаем в результирующую строку.</li>
+<li>Открывающаяся скобка '(' - помещаем ее на стек.</li>
+<li>Закрывающаяся скобка ')' - переносим операции со стека в результирующую строку до момента пока не сняли со стека '(', открывающуюся скобку в результат не помещаем. Если открывающаяся скобка так и не встретилась, значит в исходном выражение неправильно расставлены скобки помещаем в результат "ERROR" и выходим из алгоритма.</li>
+<li>Операция '+','-','*','/' - переносим в результат операции с вершины стека до тех пор пока стек не пуст и приоритет текущей операции меньше либо равен приритету операции находящейся на вершине стеке. Затем помещаем текущую операцию на стек.</li>
+</ol>
+После окончания прохода по исходному массиву, переносим операции оставшиеся на стеке в результат. Если на стеке осталась открывающаяся скобка, значит в обрабатываемом выражении содержится ошибка, а следовательно помещаем в результат "ERROR". 
+</p>
+
+<p align=justify>
+Напомню, для тех кто забыл, что принцип хранения информации на стеке "первый пришел последний ушел", т.е. "достаем" элементы из стека в обратном порядке. 
+</p>
+
+<p align=justify>
+Расширение алгоритма возможно введением обработки дополнительных функций (например синус, косинус ...). Реализация не слишком сложна, но усложняет понимание алгоритма, поэтому алгоритм обрабатывающий кроме арифметических операций также и функции представлен <a href="torpn.php">отдельно</a>.
+</p><p align=right><a class=specialatt href="/error.php?title=%CF%F0%E5%EE%E1%F0%E0%E7%EE%E2%E0%ED%E8%E5%20%E2%FB%F0%E0%E6%E5%ED%E8%FF%20%E2%20%EF%EE%F1%F2%F4%E8%EA%F1%ED%F3%FE%20%F4%EE%F0%EC%F3%20%284%20%EE%EF%E5%F0%E0%F6%E8%E8%29">Если нашли ошибку в алгоритме - сообщите!</a></p><table cellpadding=6 cellspacing=0 border=0 width=100% bgcolor=E8E8E8 style="margin-top:10px; margin-bottom:10px;">
+<tr>
+<td>
+<h2 class=compact>Блоксхемы</h2>
+</td>
+</tr>
+</table><img src="/img/i-download.gif" align=middle width=19 height=19 alt=""><span class=smalltext><a class=special href="/expressions/tosimplerpn.bls">Скачать блок-схему алгоритма</a> (для просмотра блок-схем используйте <a class=special href="/aboutbls.php">редактор блок-схем</a>)</span><p align=justify class=smalltext><span class="attention">ВНИМАНИЕ!</span> Поддержка блок-схем приостановлена на неопределенный срок. Вы по-прежнему можете скачивать и просматривать их, но ошибки в них больше не исправляются, и новые алгоритмы размещаются на сайте без блок-схем. О причинах этого можно узнать в <a href="/arcnews.php#troubles230904">выпуске новостей от 23.09.04</a>. Это не относится к программам на C++/Delphi/VB, которые сопровождаются в полном объеме.</p>
+
+<!-- END OF CONTENT -->
+<br>
+</td>
+<td width=40>
+ &nbsp; 
+</td>
+</tr>
+</table>
+
+<!-- FOOTER LINE 1 -->
+<tr>
+<td bgcolor=#0056A0 height=1>
+</td>
+</tr>
+
+<!-- FOOTER BAR -->
+<tr>
+<td bgcolor=#E2E2E2 height=30>
+&nbsp;
+</td>
+</tr>
+
+<!-- FOOTER LINE 2 -->
+<tr>
+<td bgcolor=#0056A0 height=1>
+</td>
+</tr>
+
+<!-- FOOTER -->
+<tr>
+<td height=30 nowrap valign=middle align=right>
+<table cellpadding=10 cellspacing=0 border=0><tr><td align=right>
+<font size=-1>
+
+
+
+Бочканов Сергей, Быстрицкий Владимир<br>Copyright &copy; 1999-2007<br>При поддержке проекта MANUAL.RU
+
+
+
+
+</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- END OF BODY -->
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+
