@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             out << "error\n";
         }
 
-        out << QString("Answer: %0\n").arg(result);
+        out << QString("Answer: %0\n").arg(result) << "\n";
     }
     return a.exec();
 }
